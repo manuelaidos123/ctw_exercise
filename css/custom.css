@@ -1,0 +1,45 @@
+html body {
+    background-image: url('../img/csw_img1.png'); 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+}
+
+html h4 {
+    color: white !important; 
+}
+
+html label {
+    color: red !important; 
+}
+ /* Add your custom CSS styles here */
+ body {
+    background-color: #f0f0f0; /* Background color */
+    padding: 20px; /* Add some padding for content */
+}
+
+html .car-list {
+    background-color: #fff; /* Background color for the car list container */
+    padding: 20px; /* Add some padding inside the container */
+    border-radius: 5px; /* Add border radius for a card-like appearance */
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); /* Add a slight shadow */
+}
+
+/* Style the table */
+html table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px; /* Add margin to separate from the container */
+}
+
+html table, th, td {
+    border: 1px solid #ddd; /* Add borders to table elements */
+}
+
+html th, td {
+    padding: 10px; /* Add padding to table cells */
+    text-align: left; /* Align text to the left */
+}
+
+html th {
+    background-color: #f2f2f2; /* Background color for table headers */
+}
