@@ -28,13 +28,13 @@
                     <a class="nav-link" href="consult_car.php">Consult Car Details</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#removeCar">Remove Car</a>
+                    <a class="nav-link" href="remove_car.php">Remove Car</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#reserveCar">Reserve a Car</a>
+                    <a class="nav-link" href="reserve_car.php">Reserve a Car</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#consultHistory">Consult Reserve History</a>
+                    <a class="nav-link" href="reserve_history.php">Consult Reserve History</a>
                 </li>
             </ul>
         </div>
