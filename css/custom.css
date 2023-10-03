@@ -8,38 +8,33 @@ html h4 {
     color: white !important; 
 }
 
-html label {
-    color: red !important; 
+html .custom-label {
+    color: #888 !important; /* Light gray color for labels */
 }
- /* Add your custom CSS styles here */
- body {
-    background-color: #f0f0f0; /* Background color */
-    padding: 20px; /* Add some padding for content */
-}
-
-html .car-list {
-    background-color: #fff; /* Background color for the car list container */
-    padding: 20px; /* Add some padding inside the container */
-    border-radius: 5px; /* Add border radius for a card-like appearance */
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); /* Add a slight shadow */
+html .btn-primary {
+    background-color: #007bff; /* Primary button color */
+    color: #fff; /* Text color for the button */
+    border: none; /* Remove button border */
+    border-radius: 5px; /* Add rounded corners */
+    padding: 10px 20px; /* Add padding to the button */
 }
 
-/* Style the table */
-html table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px; /* Add margin to separate from the container */
+/* Add hover effect to the button */
+html .btn-primary:hover {
+    background-color: #0056b3; /* Darker color on hover */
 }
 
-html table, th, td {
-    border: 1px solid #ddd; /* Add borders to table elements */
+/* Updated success message styling */
+html .alert.alert-success {
+    background-color: #4CAF50; /* Green background for success messages */
+    color: #fff; /* White text color */
+    text-align: center; /* Center-align text */
+    border: none; /* Remove alert border */
+    border-radius: 5px; /* Add rounded corners */
+    padding: 10px 20px; /* Add padding to the alert */
+    margin-top: 20px; /* Add margin to separate from content */
 }
 
-html th, td {
-    padding: 10px; /* Add padding to table cells */
-    text-align: left; /* Align text to the left */
-}
 
-html th {
-    background-color: #f2f2f2; /* Background color for table headers */
-}
+
+
