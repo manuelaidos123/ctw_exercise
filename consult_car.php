@@ -11,7 +11,32 @@
     
      <!-- Navigation Bar -->
      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand d-flex justify-content-center" href="index.php">Car Management Tool</a>
+        <a class="navbar-brand" href="#">Car Management Tool</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto"> <!-- Align the links to the right -->
+                <li class="nav-item">
+                    <a class="nav-link" href="add_car.php">Add New Car</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="list_cars.php">List All Cars</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="consult_car.php">Consult Car Details</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="remove_car.php">Remove Car</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="reserve_car.php">Reserve a Car</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="reserve_history.php">Consult Reserve History</a>
+                </li>
+            </ul>
+        </div>
     </nav>
 
     <!-- Content -->
@@ -60,7 +85,7 @@
             </div>
             <div class="card-body">
                 <?php
-                // Database connection (replace with your credentials)
+
                 $conn = new mysqli("localhost", "root", "", "ctw");
 
                 if ($conn->connect_error) {
@@ -81,6 +106,9 @@
                         echo "<p><strong>Brand:</strong> " . $row["brand"] . "</p>";
                         echo "<p><strong>Model:</strong> " . $row["model"] . "</p>";
                         echo "<p><strong>Seats:</strong> " . $row["seats"] . "</p>";
+                        echo "<p><strong>License Plate:</strong> " . $row["licensePlate"] . "</p>";
+                        echo "<p><strong>Engine Type:</strong> " . $row["engineType"] . "</p>";
+                        echo "<p><strong>Current Autonomy:</strong> " . $row["currentAutonomy"] . "</p>";
                         // Add more fields as needed
                     } else {
                         echo "Car not found in the database.";
