@@ -15,7 +15,7 @@
     <div class="container">
         <div class="car-list">
             <h2>List of All Cars</h2>
-            <table>
+            <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th>Brand</th>
@@ -36,7 +36,7 @@
                     }
 
                     // Query to retrieve car data
-                    $sql = "SELECT brand, model, seats, licensePlate, engineType, currentAutonomy FROM Car";
+                    $sql = "SELECT brand, model, seats, licensePlate, engineType, currentAutonomy, image FROM Car";
                     $result = $conn->query($sql);
 
                     // Check if there are rows in the result set
@@ -49,6 +49,7 @@
                             echo '<td>' . $row["licensePlate"] . '</td>';
                             echo '<td>' . $row["engineType"] . '</td>';
                             echo '<td>' . $row["currentAutonomy"] . '</td>';
+                            echo '<td><img src="data:image/jpeg;base64,' . base64_encode($row["image"]) . '" width="100px" height="auto"></td>';
                             echo '</tr>';
                         }
                     } else {
@@ -57,7 +58,7 @@
 
                     // Close the database connection
                     $conn->close();
-                    ?>
+                ?>
                 </tbody>
             </table>
         </div>

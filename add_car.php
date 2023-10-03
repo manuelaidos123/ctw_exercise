@@ -63,5 +63,18 @@
 
     <script src="js/custom.js"></script>
     <script src="js/bootstrap.min.js"></script>
+
+    <?php
+    if (isset($_SESSION['success_message'])) {
+        echo '<div class="alert alert-success" role="alert">' . $_SESSION['success_message'] . '</div>';
+        unset($_SESSION['success_message']); // Clear the session variable
+    }
+    ?>
+
+    <script>
+        setTimeout(function(){
+            document.querySelector('.alert.alert-success').style.display = 'none';
+        }, 5000); // Hide the alert after 5 seconds (5000 milliseconds)
+    </script>
 </body>
 </html>

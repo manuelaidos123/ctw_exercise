@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
@@ -9,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $engineType = $_POST["engineType"];
     $currentAutonomy = $_POST["currentAutonomy"];
 
-    // Handle image upload (you'll need to adjust this code)
+    
     $targetDir = "uploads/";
     $targetFile = $targetDir . basename($_FILES["image"]["name"]);
     move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile);
@@ -25,11 +26,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             VALUES ('$brand', '$model', $seats, '$licensePlate', '$engineType', $currentAutonomy, '$targetFile')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "Car added successfully!";
+        $_SESSION['success_message'] = "Car added successfully!";
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        $_SESSION['error_message'] = "Error: " . $sql . "<br>" . $conn->error;
     }
 
     $conn->close();
 }
+
+header("Location: add_car.php");
 ?>
