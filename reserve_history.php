@@ -10,7 +10,7 @@
 <body>
     
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Car Management Tool</a>
+            <a class="navbar-brand" href="index.php">Car Management Tool</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -108,7 +108,9 @@
 
                         // Query to retrieve reservation history for the selected car within the specified date range
                         $sql = "SELECT pickupDate, dropOffDate FROM reservation 
-                                WHERE car_id = $carId AND pickupDate >= '$startDate' AND dropOffDate <= '$endDate'"; 
+                        WHERE car_id = $carId 
+                        AND DATE(pickupDate) >= '$startDate' 
+                        AND DATE(dropOffDate) <= '$endDate'";
                         $result = $conn->query($sql);
 
                         if ($result->num_rows > 0) {
