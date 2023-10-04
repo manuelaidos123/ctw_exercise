@@ -9,7 +9,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Car Management Tool</a>
+            <a class="navbar-brand" href="index.php">Car Management Tool</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -38,56 +38,64 @@
         </nav>
     <!-- Content -->
     <div class="container">
-        <div class="car-list mt-5">
-            <h2>List of All Cars</h2>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Brand</th>
-                        <th>Model</th>
-                        <th>Seats</th>
-                        <th>License Plate</th>
-                        <th>Engine Type</th>
-                        <th>Current Autonomy</th>
-                        <th>Image</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <?php
-                    $conn = new mysqli("localhost", "root", "", "ctw");
+    <div class="car-list mt-5">
+        <h2 style="color: red !important">List of All Cars</h2>
+        
+        <!-- Bootstrap Card -->
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Brand</th>
+                            <th>Model</th>
+                            <th>Seats</th>
+                            <th>License Plate</th>
+                            <th>Engine Type</th>
+                            <th>Current Autonomy</th>
+                            <th>Image</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                        $conn = new mysqli("localhost", "root", "", "ctw");
 
-                    if ($conn->connect_error) {
-                        die("Connection failed: " . $conn->connect_error);
-                    }
-
-                    // Query to retrieve car data
-                    $sql = "SELECT brand, model, seats, licensePlate, engineType, currentAutonomy, image FROM Car";
-                    $result = $conn->query($sql);
-
-                    // Check if there are rows in the result set
-                    if ($result->num_rows > 0) {
-                        while ($row = $result->fetch_assoc()) {
-                            echo '<tr>';
-                            echo '<td>' . $row["brand"] . '</td>';
-                            echo '<td>' . $row["model"] . '</td>';
-                            echo '<td>' . $row["seats"] . '</td>';
-                            echo '<td>' . $row["licensePlate"] . '</td>';
-                            echo '<td>' . $row["engineType"] . '</td>';
-                            echo '<td>' . $row["currentAutonomy"] . '</td>';
-                            echo '<td><img src="data:image/jpeg;base64,' . base64_encode($row["image"]) . '" width="100px" height="auto"></td>';
-                            echo '</tr>';
+                        if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
                         }
-                    } else {
-                        echo '<tr><td colspan="7">No cars found in the database.</td></tr>';
-                    }
 
-                    // Close the database connection
-                    $conn->close();
-                ?>
-                </tbody>
-            </table>
+                        // Query to retrieve car data
+                        $sql = "SELECT brand, model, seats, licensePlate, engineType, currentAutonomy, image FROM Car";
+                        $result = $conn->query($sql);
+
+                        // Check if there are rows in the result set
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                echo '<tr>';
+                                echo '<td>' . $row["brand"] . '</td>';
+                                echo '<td>' . $row["model"] . '</td>';
+                                echo '<td>' . $row["seats"] . '</td>';
+                                echo '<td>' . $row["licensePlate"] . '</td>';
+                                echo '<td>' . $row["engineType"] . '</td>';
+                                echo '<td>' . $row["currentAutonomy"] . '</td>';
+                                echo '<td><img src="data:image/jpeg;base64,' . base64_encode($row["image"]) . '" width="100px" height="auto"></td>';
+                                echo '</tr>';
+                            }
+                        } else {
+                            echo '<tr><td colspan="7">No cars found in the database.</td></tr>';
+                        }
+
+                        // Close the database connection
+                        $conn->close();
+                    ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
+        <!-- End of Bootstrap Card -->
     </div>
+</div>
+
 
     <script src="js/custom.js"></script>
     <script src="js/bootstrap.min.js"></script>
